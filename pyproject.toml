@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "molfeat-padel"
+description = "molfeat plugin to support featurization using Padel descriptors"
+dynamic = ["version"]
+authors = [
+    { name = "Emmanuel Noutahi", email = "emmanuel.noutahi@hotmail.ca" },
+]
+readme = "README.md"
+license = { text = "Apache" }
+requires-python = ">=3.8"
+classifiers = [
+        "Development Status :: 3 - Alpha",
+        "Intended Audience :: Developers",
+        "Intended Audience :: Healthcare Industry",
+        "Intended Audience :: Science/Research",
+        "Topic :: Scientific/Engineering :: Artificial Intelligence",
+        "Topic :: Scientific/Engineering :: Bio-Informatics",
+        "Topic :: Scientific/Engineering :: Information Analysis",
+        "Topic :: Scientific/Engineering :: Medical Science Apps.",
+        "Natural Language :: English",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+]
+
+keywords = ["molfeat", "plugin", "PaDEL"]
+dependencies = [
+    "molfeat",
+    "padelpy"
+]
+
+[project.entry-points."molfeat.calc"]
+"padel" = "molfeat_padel.calc.padel:PadelDescriptors"
+
+[project.urls]
+Website = "https://molfeat.datamol.io"
+"Source Code" = "https://github.com/datamol-io/molfeat-padel"
+"Bug Tracker" = "https://github.com/datamol-io/molfeat-padel/issues"
+Documentation = "https://molfeat-docs.datamol.io"
+
+[tool.setuptools]
+include-package-data = true
+zip-safe = false
+license-files = ["LICENSE"]
+
+[tool.setuptools_scm]
+fallback_version = "dev"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["molfeat_padel", "molfeat_padel.*"]
+exclude = []
+namespaces = true
+
+[tool.black]
+line-length = 100
+target-version = ['py39', 'py310']
+include = '\.pyi?$'
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--verbose --cov-report xml --cov-report term --color yes"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+omit = ["tests/*"]
+
+[tool.coverage.xml]
+output = "cov.xml"
