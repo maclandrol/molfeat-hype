@@ -1,1 +1,0 @@
-from .padel import PadelDescriptors

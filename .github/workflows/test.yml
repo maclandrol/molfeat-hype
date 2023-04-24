@@ -38,7 +38,7 @@ jobs:
         uses: mamba-org/provision-with-micromamba@v15
         with:
           environment-file: env.yml
-          environment-name: molfeat-padel
+          environment-name: molfeat-hype
           cache-downloads: true
           cache-env: true
           extra-specs: |

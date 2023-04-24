@@ -3,14 +3,14 @@ requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "molfeat-padel"
-description = "molfeat plugin to support featurization using Padel descriptors"
+name = "molfeat-hype"
+description = "molfeat plugin that leverages the most hyped LLM models in NLP for molecular featurization"
 dynamic = ["version"]
 authors = [
     { name = "Emmanuel Noutahi", email = "emmanuel.noutahi@hotmail.ca" },
 ]
 readme = "README.md"
-license = { text = "Apache" }
+license = {text = "Apache-2.0"}
 requires-python = ">=3.8"
 classifiers = [
         "Development Status :: 3 - Alpha",
@@ -30,19 +30,20 @@ classifiers = [
         "Programming Language :: Python :: 3.10",
 ]
 
-keywords = ["molfeat", "plugin", "PaDEL"]
+keywords = ["molfeat", "chatGPT", "LLM", "llama", "alcapa"]
 dependencies = [
     "molfeat",
-    "padelpy"
+    "langchain",
 ]
 
-[project.entry-points."molfeat.calc"]
-"padel" = "molfeat_padel.calc.padel:PadelDescriptors"
+[project.entry-points."molfeat.trans.pretrained"]
+"hyper.ChatGPTPretrainedTransformer" = "molfeat_hype.trans.chatgpt:ChatGPTPretrainedTransformer"
+"hyper.LLMHypedPretrainedTransformer" = "molfeat_hype.trans.instruct:LLMHypedPretrainedTransformer"
 
 [project.urls]
 Website = "https://molfeat.datamol.io"
-"Source Code" = "https://github.com/datamol-io/molfeat-padel"
-"Bug Tracker" = "https://github.com/datamol-io/molfeat-padel/issues"
+"Source Code" = "https://github.com/maclandrol/molfeat-hype"
+"Bug Tracker" = "https://github.com/maclandrol/molfeat-hype/issues"
 Documentation = "https://molfeat-docs.datamol.io"
 
 [tool.setuptools]
@@ -55,7 +56,7 @@ fallback_version = "dev"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["molfeat_padel", "molfeat_padel.*"]
+include = ["molfeat_hype", "molfeat_hype.*"]
 exclude = []
 namespaces = true
 

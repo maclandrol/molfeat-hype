@@ -1,5 +1,5 @@
 ========================
-molfeat-padel Change Log
+molfeat-hype Change Log
 ========================
 
 .. current developments

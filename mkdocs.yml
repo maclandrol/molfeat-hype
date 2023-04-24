@@ -1,0 +1,69 @@
+site_name: "molfeat-hype"
+site_description: "molfeat plugin that leverages the most hyped LLM models in NLP for molecular featurization"
+site_url: ""
+repo_url: "https://github.com/maclandrol/molfeat-hype"
+repo_name: "maclandrol/molfeat-hype"
+docs_dir: "docs"
+remote_branch: "gh-pages"
+use_directory_urls: false
+copyright: Copyright 2023 maclandrol
+
+nav:
+  - Why ?: index.md
+  - Using molfeat-hype: usage.md
+  - Tutorials:
+      - Getting Started: tutorials/getting-started.ipynb
+      - Benchmark: tutorials/benchmark.ipynb
+  - API:
+      - molfeat_hype.trans: api/molfeat_hype.trans.md
+  - License: license.md
+
+theme:
+  name: material
+  features:
+    - navigation.expand
+
+markdown_extensions:
+  - admonition
+  - markdown_include.include
+  - pymdownx.emoji
+  - pymdownx.highlight
+  - pymdownx.magiclink
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.tasklist
+  - pymdownx.details
+  # For `tab_length=2` in the markdown extension
+  # See https://github.com/mkdocs/mkdocs/issues/545
+  - mdx_truly_sane_lists
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - mkdocstrings:
+      watch:
+        - molfeat_hype/
+      handlers:
+        python:
+          setup_commands:
+            - import sys
+            - import molfeat
+            - sys.path.append("docs")
+            - sys.path.append("molfeat_hype")
+          selection:
+            new_path_syntax: true
+          rendering:
+            show_root_heading: false
+            heading_level: 3
+            show_if_no_docstring: true
+
+  - mkdocs-jupyter:
+      execute: false
+
+  - mike:
+      version_selector: true
+
+extra:
+  version:
+    provider: mike

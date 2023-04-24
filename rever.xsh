@@ -1,8 +1,8 @@
 # Configuration
 
-$PROJECT = $GITHUB_REPO  = 'molfeat-padel'
-$GITHUB_ORG = 'datamol-io'
-$PUSH_TAG_REMOTE = 'git@github.com:datamol-io/molfeat-padel.git'
+$PROJECT = $GITHUB_REPO  = 'molfeat-hype'
+$GITHUB_ORG = 'maclandrol'
+$PUSH_TAG_REMOTE = 'git@github.com:maclandrol/molfeat-hype.git'
 
 # Logic
 

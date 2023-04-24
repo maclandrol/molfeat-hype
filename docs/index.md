@@ -1,22 +1,6 @@
 
 # :comet: `molfeat-hype`
 
-molfeat plugin that leverages the most hyped LLM models in NLP for molecular featurization
-
-<div align="center">
-    <img src="docs/assets/molfeat-hype-cover.svg" width="100%">
-</div>
-<p align="center">
-    <b> ☄️ molfeat-hype - A molfeat plugin trying to jump on the LLM hype.</b> <br />
-</p>
-<p align="center">
-  <a href="https://maclandrol.github.io/molfeat-hype/" target="_blank">
-      Docs
-  </a>
-</p>
-
----
-
 [![PyPI](https://img.shields.io/pypi/v/molfeat-hype)](https://pypi.org/project/molfeat-hype/)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/molfeat-hype)](https://pypi.org/project/molfeat-hype/)
 [![license](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/maclandrol/molfeat-hype/blob/main/LICENSE)
@@ -30,7 +14,7 @@ molfeat plugin that leverages the most hyped LLM models in NLP for molecular fea
 
 ```Is there even any need to pretrain/finetune LLMs on molecular context to get good molecular representations ?```
 
-If you want an answer to this question, see the [benchmarks](./docs/tutorials/benchmark.ipynb)
+If you want an answer to this question, see the [benchmarks](./tutorials/benchmark.ipynb)
 
 Two class of LLM embeddings are supported in `molfeat-hype`:
 
@@ -70,43 +54,6 @@ pip install molfeat-hype
 - To learn more about the plugin system of molfeat, please see [extending molfeat](https://molfeat-docs.datamol.io/stable/developers/create-plugin.html)
 
 - Please refer to the [`langchain`](https://github.com/hwchase17/langchain) documentation for any question related to langchain.
-
-## Usage
-
-The following example shows how to use the `molfeat-hype` plugin package automatically when installed. All scenarios highlighted in this example are valid:
-
-
-1. Using directly this package
-
-```python
-
-from molfeat_hype.trans.llm_embeddings import LLMEmbeddingsTransformer
-
-mol_transf = LLMEmbeddingsTransformer(kind="openai/text-embedding-ada-002")
-```
-
-2. enable autodiscovery as plugin in molfeat and addition of all embedding classes as importable attribute to the entry point group `molfeat.trans.pretrained`
-
-```python
-# put this somewhere in you code (e.g in the root __init__ file)
-from molfeat.plugins import load_registered_plugins
-load_registered_plugins(add_submodules=True, plugins=["molfeat_hype"])
-```
-
-```python
-# this is now possible everywhere
-from molfeat.trans.pretrained import LLMEmbeddingsTransformer
-mol_transf = LLMEmbeddingsTransformer(kind="openai/text-embedding-ada-002")
-```
-
-
-## Changelog
-See the latest changelogs at [CHANGELOG.rst](./CHANGELOG.rst).
-
-## Maintainers
-
-- @maclandrol
-- @dessygil
 
 
 ## Contributing
