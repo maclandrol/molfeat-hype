@@ -1812,18 +1812,6 @@ def scaffold_split(smiles):
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="lipophilicity">Lipophilicity<a class="anchor-link" href="#lipophilicity">&#182;</a></h4><p>Lipophilicity is a regression task with 4200 molecules</p>
-
-</div>
-</div>
-</div>
-</div>
-<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Classic embeddings</p>
 
 </div>
@@ -1882,10 +1870,10 @@ def scaffold_split(smiles):
                     </div>
                 </clipboard-copy>
             </div>
-            <div class="highlight-ipynb hl-python "><pre><span></span><span class="n">openai_ada_cache</span> <span class="o">=</span> <span class="n">FileCache</span><span class="p">(</span><span class="n">cache_file</span><span class="o">=</span><span class="s2">&quot;./cache/openai_ada_cache.parquet&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;openai_ada_cache&quot;</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python "><pre><span></span><span class="n">openai_ada_cache</span> <span class="o">=</span> <span class="n">FileCache</span><span class="p">(</span><span class="n">cache_file</span><span class="o">=</span><span class="s2">&quot;../../cache/openai_ada_cache.parquet&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;openai_ada_cache&quot;</span><span class="p">)</span>
 <span class="n">transf_openai_ada</span> <span class="o">=</span> <span class="n">LLMTransformer</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;openai/text-embedding-ada-002&quot;</span><span class="p">,</span> <span class="n">openai_api_key</span><span class="o">=</span><span class="n">openai_api_key</span><span class="p">,</span> <span class="n">precompute_cache</span><span class="o">=</span><span class="n">openai_ada_cache</span><span class="p">)</span>
 </pre></div>
-<div id="cell-6" class="clipboard-copy-txt">openai_ada_cache = FileCache(cache_file="./cache/openai_ada_cache.parquet", name="openai_ada_cache")
+<div id="cell-6" class="clipboard-copy-txt">openai_ada_cache = FileCache(cache_file="../../cache/openai_ada_cache.parquet", name="openai_ada_cache")
 transf_openai_ada = LLMTransformer(kind="openai/text-embedding-ada-002", openai_api_key=openai_api_key, precompute_cache=openai_ada_cache)</div>
         
         </div>
@@ -1916,10 +1904,10 @@ transf_openai_ada = LLMTransformer(kind="openai/text-embedding-ada-002", openai_
                     </div>
                 </clipboard-copy>
             </div>
-            <div class="highlight-ipynb hl-python "><pre><span></span><span class="n">sent_trans_cache</span> <span class="o">=</span> <span class="n">FileCache</span><span class="p">(</span><span class="n">cache_file</span><span class="o">=</span><span class="s2">&quot;./cache/sentence_transformer.parquet&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;sent_trans_cache&quot;</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python "><pre><span></span><span class="n">sent_trans_cache</span> <span class="o">=</span> <span class="n">FileCache</span><span class="p">(</span><span class="n">cache_file</span><span class="o">=</span><span class="s2">&quot;../../cache/sentence_transformer.parquet&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;sent_trans_cache&quot;</span><span class="p">)</span>
 <span class="n">transf_sentence</span> <span class="o">=</span> <span class="n">LLMTransformer</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;sentence-transformers/all-mpnet-base-v2&quot;</span><span class="p">,</span> <span class="n">precompute_cache</span><span class="o">=</span><span class="n">sent_trans_cache</span><span class="p">)</span>
 </pre></div>
-<div id="cell-7" class="clipboard-copy-txt">sent_trans_cache = FileCache(cache_file="./cache/sentence_transformer.parquet", name="sent_trans_cache")
+<div id="cell-7" class="clipboard-copy-txt">sent_trans_cache = FileCache(cache_file="../../cache/sentence_transformer.parquet", name="sent_trans_cache")
 transf_sentence = LLMTransformer(kind="sentence-transformers/all-mpnet-base-v2", precompute_cache=sent_trans_cache)</div>
         
         </div>
@@ -1962,10 +1950,10 @@ transf_sentence = LLMTransformer(kind="sentence-transformers/all-mpnet-base-v2",
                     </div>
                 </clipboard-copy>
             </div>
-            <div class="highlight-ipynb hl-python "><pre><span></span><span class="n">cond_embed_cache</span> <span class="o">=</span> <span class="n">FileCache</span><span class="p">(</span><span class="n">cache_file</span><span class="o">=</span><span class="s2">&quot;./cache/cond_embed.parquet&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;cond_embed_cache&quot;</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python "><pre><span></span><span class="n">cond_embed_cache</span> <span class="o">=</span> <span class="n">FileCache</span><span class="p">(</span><span class="n">cache_file</span><span class="o">=</span><span class="s2">&quot;../../cache/cond_embed.parquet&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;cond_embed_cache&quot;</span><span class="p">)</span>
 <span class="n">transf_cond_embed</span> <span class="o">=</span> <span class="n">InstructLLMTransformer</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;hkunlp/instructor-large&quot;</span><span class="p">,</span> <span class="n">precompute_cache</span><span class="o">=</span><span class="n">cond_embed_cache</span><span class="p">)</span>
 </pre></div>
-<div id="cell-8" class="clipboard-copy-txt">cond_embed_cache = FileCache(cache_file="./cache/cond_embed.parquet", name="cond_embed_cache")
+<div id="cell-8" class="clipboard-copy-txt">cond_embed_cache = FileCache(cache_file="../../cache/cond_embed.parquet", name="cond_embed_cache")
 transf_cond_embed = InstructLLMTransformer(kind="hkunlp/instructor-large", precompute_cache=cond_embed_cache)</div>
         
         </div>
@@ -1996,6 +1984,18 @@ max_seq_length  512
 
 </div>
 
+</div>
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="lipophilicity">Lipophilicity<a class="anchor-link" href="#lipophilicity">&#182;</a></h4><p>Lipophilicity is a regression task with 4200 molecules</p>
+
+</div>
+</div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -2210,9 +2210,9 @@ X["hkunlp/instructor-large"] = feats_cond_embed[ind_cond_embed]</div>
                     </div>
                 </clipboard-copy>
             </div>
-            <div class="highlight-ipynb hl-python "><pre><span></span><span class="err">!</span> <span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">./</span><span class="n">cache</span><span class="o">/</span>
+            <div class="highlight-ipynb hl-python "><pre><span></span><span class="err">!</span> <span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">../../</span><span class="n">cache</span><span class="o">/</span>
 </pre></div>
-<div id="cell-14" class="clipboard-copy-txt">! mkdir -p ./cache/</div>
+<div id="cell-14" class="clipboard-copy-txt">! mkdir -p ../../cache/</div>
         
         </div>
     </div>
@@ -2284,10 +2284,10 @@ X["hkunlp/instructor-large"] = feats_cond_embed[ind_cond_embed]</div>
                     </div>
                 </clipboard-copy>
             </div>
-            <div class="highlight-ipynb hl-python "><pre><span></span><span class="n">chatgpt_cache</span> <span class="o">=</span> <span class="n">FileCache</span><span class="p">(</span><span class="n">cache_file</span><span class="o">=</span><span class="s2">&quot;./cache/chatgpt.parquet&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;chatgpt_cache&quot;</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python "><pre><span></span><span class="n">chatgpt_cache</span> <span class="o">=</span> <span class="n">FileCache</span><span class="p">(</span><span class="n">cache_file</span><span class="o">=</span><span class="s2">&quot;../../cache/chatgpt.parquet&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;chatgpt_cache&quot;</span><span class="p">)</span>
 <span class="n">transf_chatgpt</span> <span class="o">=</span> <span class="n">InstructLLMTransformer</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;openai/chatgpt&quot;</span><span class="p">,</span> <span class="n">embedding_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">openai_api_key</span><span class="o">=</span><span class="n">openai_api_key</span><span class="p">,</span> <span class="n">conv_buffer_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">request_timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">precompute_cache</span><span class="o">=</span><span class="n">chatgpt_cache</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
-<div id="cell-16" class="clipboard-copy-txt">chatgpt_cache = FileCache(cache_file="./cache/chatgpt.parquet", name="chatgpt_cache")
+<div id="cell-16" class="clipboard-copy-txt">chatgpt_cache = FileCache(cache_file="../../cache/chatgpt.parquet", name="chatgpt_cache")
 transf_chatgpt = InstructLLMTransformer(kind="openai/chatgpt", embedding_size=16, openai_api_key=openai_api_key, conv_buffer_size=3, request_timeout=300, precompute_cache=chatgpt_cache, batch_size=4)</div>
         
         </div>
