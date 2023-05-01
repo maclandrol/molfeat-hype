@@ -30,8 +30,14 @@ molfeat plugin that leverages the most hyped LLM models in NLP for molecular fea
 
 ```Is it necessary to pretrain/finetune LLMs on molecular context to obtain good molecular representations?```
 
+To find an answer to this question, check out the [benchmarks](./docs/tutorials/benchmark.ipynb)
 
-To find an answer to this question, check out the [benchmarks](./tutorials/benchmark.ipynb)
+<details>
+ <summary>Spoilers</summary>
+ NO ! Understanding of molecular context/structure/properties is key for building good molecular featurizers. 
+</details>
+
+### LLMs:
 
 `molfeat-hype` supports two types of LLM embeddings:
 

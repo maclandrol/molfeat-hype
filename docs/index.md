@@ -1,5 +1,5 @@
 
-# :comet: `molfeat-hype`
+# ☄️ `molfeat-hype`
 
 [![PyPI](https://img.shields.io/pypi/v/molfeat-hype)](https://pypi.org/project/molfeat-hype/)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/molfeat-hype)](https://pypi.org/project/molfeat-hype/)
@@ -15,7 +15,15 @@
 ```Is it necessary to pretrain/finetune LLMs on molecular context to obtain good molecular representations?```
 
 
-To find an answer to this question, check out the [benchmarks](./tutorials/benchmark.ipynb)
+To find an answer to this question, check out the [benchmarks](tutorials/benchmark.ipynb)
+
+
+<details>
+ <summary>Spoilers</summary>
+ <strong>NO!</strong>, Understanding of molecular context/structure/properties is key for building good molecular featurizers. 
+</details>
+
+### LLMs:
 
 `molfeat-hype` supports two types of LLM embeddings:
 
