@@ -1,13 +1,11 @@
 
 # :comet: `molfeat-hype`
 
-molfeat plugin that leverages the most hyped LLM models in NLP for molecular featurization
-
 <div align="center">
     <img src="docs/assets/molfeat-hype-cover.svg" width="100%">
 </div>
 <p align="center">
-    <b> ☄️ molfeat-hype - A molfeat plugin trying to jump on the LLM hype.</b> <br />
+    <b> ☄️ molfeat-hype - A molfeat plugin that leverages the most hyped LLM models in NLP for molecular featurization.</b> <br />
 </p>
 <p align="center">
   <a href="https://maclandrol.github.io/molfeat-hype/" target="_blank">
