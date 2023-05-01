@@ -9,23 +9,24 @@ The following shows examples of how to use the `molfeat-hype` plugin package aut
 
 ```python
 
-from molfeat_hype.trans.llm_embeddings import LLMEmbeddingsTransformer
+from molfeat_hype.trans.llm_embeddings import LLMTransformer
 
-mol_transf =  LLMEmbeddingsTransformer(kind="sentence-transformers/all-mpnet-base-v2")
+mol_transf =  LLMTransformer(kind="sentence-transformers/all-mpnet-base-v2")
 ```
 
-2. enable autodiscovery as plugin in molfeat and addition of all embedding classes as importable attribute to the entry point group `molfeat.trans.pretrained`
+2. enable autodiscovery as plugin in molfeat, and addition of all embedding classes as importable attribute to the entry point group `molfeat.trans.pretrained`
 
 ```python
 # put this somewhere in you code (e.g in the root __init__ file)
+# plugins should be any subword of 'molfeat_hype' 
 from molfeat.plugins import load_registered_plugins
-load_registered_plugins(add_submodules=True, plugins=["molfeat_hype"])
+load_registered_plugins(add_submodules=True, plugins=["hype"])
 ```
 
 ```python
 # this is now possible everywhere
-from molfeat.trans.pretrained import LLMEmbeddingsTransformer
-mol_transf =  LLMEmbeddingsTransformer(kind="sentence-transformers/all-mpnet-base-v2")
+from molfeat.trans.pretrained import LLMTransformer
+mol_transf =  LLMTransformer(kind="sentence-transformers/all-mpnet-base-v2")
 ```
 
 Once you have your molecule transformer defined, just use it like any `molfeat` `MoleculeTransformer`

@@ -30,15 +30,21 @@ classifiers = [
         "Programming Language :: Python :: 3.10",
 ]
 
-keywords = ["molfeat", "chatGPT", "LLM", "llama", "alcapa"]
+keywords = ["molfeat", "chatGPT", "LLM", "llama", "alpaca"]
 dependencies = [
+    "datamol",
     "molfeat",
     "langchain",
+    "InstructorEmbedding",
+    "transformers",
+    "sentence-transformers",
+    "openai",
+    "python-dotenv"
 ]
 
 [project.entry-points."molfeat.trans.pretrained"]
-"hyper.ChatGPTPretrainedTransformer" = "molfeat_hype.trans.chatgpt:ChatGPTPretrainedTransformer"
-"hyper.LLMHypedPretrainedTransformer" = "molfeat_hype.trans.instruct:LLMHypedPretrainedTransformer"
+"hyper.LLMTransformer" = "molfeat_hype.trans.llm_embeddings:LLMTransformer"
+"hyper.InstructLLMTransformer" = "molfeat_hype.trans.llm_instruct_embeddings:InstructLLMTransformer"
 
 [project.urls]
 Website = "https://molfeat.datamol.io"
@@ -67,7 +73,7 @@ include = '\.pyi?$'
 
 [tool.pytest.ini_options]
 minversion = "6.0"
-addopts = "--verbose --cov-report xml --cov-report term --color yes"
+addopts = "--verbose --cov-report xml --cov-report term --color yes --disable-warnings"
 testpaths = ["tests"]
 
 [tool.coverage.run]
