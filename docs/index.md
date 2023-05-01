@@ -66,7 +66,7 @@ As an open-source project in a rapidly developing field, we are extremely open t
 For detailed information on how to contribute, see our [contribution guide](./contribute.md).
 
 
-### Disclaimer
+## Disclaimer
 This repository contains an experimental investigation of LLM embeddings for molecules. Please note that the consistency and usefulness of the returned molecular embeddings are not guaranteed. This project is meant for fun and exploratory purposes only and should not be used as a demonstration of LLM capabilities for molecular embeddings. Any statements made in this repository are the opinions of the authors and do not necessarily reflect the views of any affiliated organizations or individuals. Use at your own risk.
 
 ## License
