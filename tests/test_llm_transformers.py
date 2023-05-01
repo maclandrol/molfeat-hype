@@ -1,41 +1,47 @@
-import unittest as ut
+import pytest
+import os
 import datamol as dm
-import numpy as np
 
 from molfeat.plugins import load_registered_plugins
-from molfeat.trans import MoleculeTransformer
 
-load_registered_plugins()
-from molfeat.calc import PadelDescriptors
+load_registered_plugins(add_submodules=True, plugins=["hype"])
 
-
-class TestPadel(ut.TestCase):
-    r"""Test cases for descriptors and pharmacophore generation"""
-    smiles = [
-        "CCOc1c(OC)cc(CCN)cc1OC",
-        "COc1cc(CCN)cc(OC)c1OC",
-        "C[C@@H]([NH3+])Cc1c2ccoc2c(Br)c2ccoc12",
-    ]
-    EXTRA_LARGE_MOL = "CC(C)CC(NCCNC(=O)C(CCC(O)=O)NC(C)=O)C(=O)NC(Cc1ccc(O)cc1)C(=O)NC(CC(C)C)C(=O)NC(C(C)C)C(=O)NC(C)C(=O)NCC(=O)NC(CCC(O)=O)C(=O)NC(CCCNC(N)=N)C(=O)NCC(=O)NC(Cc1ccccc1)C(=O)NC(Cc1ccccc1)C(=O)NC(Cc1ccc(O)cc1)C(=O)NC(C(C)O)C(=O)N1CCCC1C(=O)NC(C)C(O)=O"
-
-    def test_padel_calc(self):
-        calc = PadelDescriptors()
-        fps = calc(self.smiles[0])
-        self.assertEqual(len(fps), len(calc))
-
-    def test_padel_fp(self):
-        smiles = dm.freesolv()["smiles"].values[:5]
-        for feat in ["PadelDescriptors", PadelDescriptors()]:
-            mol_transf = MoleculeTransformer(featurizer=feat, dtype="df")
-            fps = mol_transf(smiles)
-            self.assertEqual(fps.shape, (5, 2756))
-
-        from molfeat_padel.calc.padel import PadelDescriptors as PD
-
-        mol_transf2 = MoleculeTransformer(featurizer=PD(), dtype="df")
-        fps2 = mol_transf2(smiles)
-        np.testing.assert_allclose(fps.values, fps2.values, rtol=1e-05)
+from molfeat.trans.pretrained import InstructLLMTransformer
+from molfeat.trans.pretrained import LLMTransformer
 
 
-if __name__ == "__main__":
-    ut.main()
+@pytest.fixture
+def openai_api_key():
+    return os.environ.get("OPENAI_API_KEY", None)
+
+
+# write the unit test for the molfeat-hype plugin that cover both
+# the LLMTransformer and InstructLLMTransformer classes as well as some of their variants. you should have multiple test function in the test class
+
+
+class TestLLMTransformers:
+    smiles = dm.freesolv()["smiles"].values[:3]
+    INSTRUCT_EMBEDDING_SIZE = 16
+
+    def test_llm_classic(self, openai_api_key):
+        embedder = LLMTransformer(
+            kind="openai/text-embedding-ada-002", openai_api_key=openai_api_key
+        )
+        out = embedder(self.smiles)
+        assert out.shape == (len(self.smiles), 1536)
+
+        embedder = LLMTransformer(kind="sentence-transformers/all-mpnet-base-v2")
+        out = embedder(self.smiles)
+        assert out.shape == (len(self.smiles), 768)
+
+    def test_llm_instruct(self, openai_api_key):
+        embedder = InstructLLMTransformer(
+            kind="openai/chatgpt",
+            openai_api_key=openai_api_key,
+            embedding_size=self.INSTRUCT_EMBEDDING_SIZE,
+        )
+        out = embedder(self.smiles)
+        assert out.shape == (len(self.smiles), self.INSTRUCT_EMBEDDING_SIZE)
+        embedder = InstructLLMTransformer(kind="hkunlp/instructor-base")
+        out = embedder(self.smiles)
+        assert out.shape == (len(self.smiles), 768)
