@@ -32,7 +32,7 @@ To find an answer to this question, check out the [benchmarks](./docs/tutorials/
 
 <details>
  <summary>Spoilers</summary>
- NO ! Understanding of molecular context/structure/properties is key for building good molecular featurizers. 
+Yes ! Understanding of molecular context/structure/properties is key for building good molecular featurizers. 
 </details>
 
 ### LLMs:
