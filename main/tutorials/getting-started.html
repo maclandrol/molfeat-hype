@@ -17,7 +17,7 @@
         <link rel="next" href="benchmark.html">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.9">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.ded33207.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.85bb2934.min.css">
       
       
 
@@ -1730,7 +1730,7 @@ smiles</div>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>In these examples we will explore various embeddings provided by the <code>molfeat-hype</code> plugin of <code>molfeat</code>. We are interested in understanding and assessing how good LLMs that have NOT been trained or finetuned with any particular molecular context can get on molecular featurization.</p>
+<p>In these examples we will explore various embeddings provided by the <code>molfeat-hype</code> plugin of <code>molfeat</code>. We are interested in understanding and assessing how good Large Language Models (LLMs) that have <strong>NOT</strong> been trained or finetuned with any particular molecular context can get on molecular featurization.</p>
 
 </div>
 </div>
@@ -1742,7 +1742,7 @@ smiles</div>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="classic-embeddings">Classic Embeddings<a class="anchor-link" href="#classic-embeddings">&#182;</a></h2><p>Classic embeddings are embeddings provided by a LLMs directly.</p>
+<h2 id="classic-embeddings">Classic Embeddings<a class="anchor-link" href="#classic-embeddings">&#182;</a></h2><p>Classic embeddings are embeddings provided by a LLM directly.</p>
 
 </div>
 </div>
@@ -2060,7 +2060,7 @@ out.shape</div>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="using-the-llama-weights">Using the Llama weights<a class="anchor-link" href="#using-the-llama-weights">&#182;</a></h3><p>To use the Llama weights, you need to obtain them first, then follow the instruction provided in the <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a> repo to get 4-bits quantization of model weight.</p>
+<h3 id="using-the-llama-weights">Using the Llama weights<a class="anchor-link" href="#using-the-llama-weights">&#182;</a></h3><p>To use the Llama weights, you need to obtain them first, then follow the instruction provided in the <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a> repo to get 4-bits quantization of model weights.</p>
 
 </div>
 </div>
@@ -2196,11 +2196,11 @@ llama_init_from_file: kv self size  = 1024.00 MB
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="instruction-based-models">Instruction-based models<a class="anchor-link" href="#instruction-based-models">&#182;</a></h2><p>Instruction-based models are models that are trained to follow instruction. <code>molfeat_hype</code> provides two type of instruction-based models for embeddings.</p>
+<h2 id="instruction-based-models">Instruction-based models<a class="anchor-link" href="#instruction-based-models">&#182;</a></h2><p><code>molfeat_hype</code> provides two types of instruction-based models for molecule embeddings:</p>
 <ol>
-<li><p>Prompt-based instruction: a model (ChatGPT) is asked to act like an all-knowning assistant for drug discovery and to provide the best molecular representation for the input list of molecules. Here we parse the representation from the Chat agent output.</p>
+<li><p>Prompt-based instruction: a ChatGPT model is trained to act like an all-knowing assistant for drug discovery, providing the best molecular representation for the input list of molecules. The representation is parsed from the Chat agent output.</p>
 </li>
-<li><p>Conditional embedding: a model trained for conditional text embeddings that takes instruction as input. Here the embedding is the model underlying representation of the molecule conditioned by the instructions it received. For more information, see this <a href="https://github.com/HKUNLP/instructor-embedding">instructor-embedding</a></p>
+<li><p>Conditional embedding: a model trained for conditional text embeddings that takes instructions in its input. The embedding is the model's underlying representation of the molecule, conditioned by the instructions it received. For more information, see <a href="https://github.com/HKUNLP/instructor-embedding">instructor-embedding</a>.</p>
 </li>
 </ol>
 
@@ -2495,7 +2495,7 @@ max_seq_length  512
     <script id="__config" type="application/json">{"base": "..", "features": ["navigation.expand"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.51198bba.min.js"></script>
+      <script src="../assets/javascripts/bundle.fac441b0.min.js"></script>
       
     
   </body>

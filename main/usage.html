@@ -17,7 +17,7 @@
         <link rel="next" href="tutorials/getting-started.html">
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.9">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.ded33207.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.85bb2934.min.css">
       
       
 
@@ -524,40 +524,40 @@
   <h1>Using molfeat-hype</h1>
 
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p>Since <code>molfeat-hype</code> is a molfeat plugin, it follows the same integration principle as with any other molfeat plugin. </p>
+<p>Since <code>molfeat-hype</code> is a <code>molfeat</code> plugin, it follows the same integration principle as with any other <code>molfeat</code> plugin. </p>
 <p>The following shows examples of how to use the <code>molfeat-hype</code> plugin package automatically when installed.</p>
 <ol>
-<li>Using directly this package</li>
+<li>Using this package directly:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">molfeat_hype.trans.llm_embeddings</span> <span class="kn">import</span> <span class="n">LLMTransformer</span>
 
-<span class="n">mol_transf</span> <span class="o">=</span>  <span class="n">LLMTransformer</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;sentence-transformers/all-mpnet-base-v2&quot;</span><span class="p">)</span>
+<span class="n">mol_transf</span> <span class="o">=</span> <span class="n">LLMTransformer</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;sentence-transformers/all-mpnet-base-v2&quot;</span><span class="p">)</span>
 </code></pre></div>
 <ol>
-<li>enable autodiscovery as plugin in molfeat, and addition of all embedding classes as importable attribute to the entry point group <code>molfeat.trans.pretrained</code></li>
+<li>Enabling autodiscovery as a plugin in <code>molfeat</code>, and addition of all embedding classes as an importable attribute to the entry point group <code>molfeat.trans.pretrained</code>:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="c1"># put this somewhere in you code (e.g in the root __init__ file)</span>
-<span class="c1"># plugins should be any subword of &#39;molfeat_hype&#39; </span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Put this somewhere in your code (e.g., in the root __init__ file).</span>
+<span class="c1"># Plugins should include any subword of &#39;molfeat_hype&#39;.</span>
 <span class="kn">from</span> <span class="nn">molfeat.plugins</span> <span class="kn">import</span> <span class="n">load_registered_plugins</span>
 <span class="n">load_registered_plugins</span><span class="p">(</span><span class="n">add_submodules</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">plugins</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hype&quot;</span><span class="p">])</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1"># this is now possible everywhere</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># This is now possible everywhere.</span>
 <span class="kn">from</span> <span class="nn">molfeat.trans.pretrained</span> <span class="kn">import</span> <span class="n">LLMTransformer</span>
-<span class="n">mol_transf</span> <span class="o">=</span>  <span class="n">LLMTransformer</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;sentence-transformers/all-mpnet-base-v2&quot;</span><span class="p">)</span>
+<span class="n">mol_transf</span> <span class="o">=</span> <span class="n">LLMTransformer</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;sentence-transformers/all-mpnet-base-v2&quot;</span><span class="p">)</span>
 </code></pre></div>
-<p>Once you have your molecule transformer defined, just use it like any <code>molfeat</code> <code>MoleculeTransformer</code></p>
+<p>Once you have defined your molecule transformer, use it like any <code>molfeat</code> <code>MoleculeTransformer</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datamol</span> <span class="k">as</span> <span class="nn">dm</span>
 <span class="n">smiles</span> <span class="o">=</span> <span class="n">dm</span><span class="o">.</span><span class="n">freesolv</span><span class="p">()[</span><span class="s2">&quot;smiles&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
 <span class="n">mol_transf</span><span class="p">(</span><span class="n">smiles</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="caching">Caching<a class="headerlink" href="#caching" title="Permanent link">&para;</a></h3>
-<p>We heavily encourage you to set a cache for computing your molecular representation. By default a temporary <code>in-memory</code> cache will be set and will be purged when the python runtime is stopped.</p>
+<p>We strongly encourage you to set a cache for computing your molecular representation. By default, a temporary <code>in-memory</code> cache will be set and will be purged when the Python runtime is stopped.</p>
 <h3 id="openai">OpenAI<a class="headerlink" href="#openai" title="Permanent link">&para;</a></h3>
-<p>If you are using the OpenAI embeddings, you need to either provide a 'open_ai_key' argument or define one as an environment variable 'OPEN_AI_KEY'.</p>
-<p>Please refer to OpenAI's <a href="https://platform.openai.com/account/api-keys">API keys documentation</a> to setup your API keys. You will need to activate the billing.</p>
+<p>If you are using the OpenAI embeddings, you need to provide either an <code>open_ai_key</code> argument or define one as an environment variable <code>OPEN_AI_KEY</code>.</p>
+<p>Please refer to OpenAI's <a href="https://platform.openai.com/account/api-keys">API keys documentation</a> to set up your API keys. You will need to activate billing.</p>
 <h3 id="llamacpp">llama.cpp<a class="headerlink" href="#llamacpp" title="Permanent link">&para;</a></h3>
-<p>Llama integration requires the <a href="https://github.com/abetlen/llama-cpp-python">llama-cpp-python</a> which is a python binding for the <a href="https://github.com/ggerganov/llama.cpp">llama-cpp</a> package. You will also need the Llama model weights.</p>
-<p><strong>Do not share any IPFS, magnet links, or any other links to model downloads anywhere in this repository, including in issues, discussions or pull requests</strong>. They will be immediately deleted.</p>
+<p>Llama integration requires the <a href="https://github.com/abetlen/llama-cpp-python">llama-cpp-python</a>, which is a Python binding for the <a href="https://github.com/ggerganov/llama.cpp">llama-cpp</a> package. You will also need the Llama model weights.</p>
+<p><strong>Do not share any IPFS, magnet links, or any other links to model downloads anywhere in this repository, including in issues, discussions, or pull requests</strong>. They will be immediately deleted.</p>
 <h3 id="warning">Warning<a class="headerlink" href="#warning" title="Permanent link">&para;</a></h3>
 <p>This repository contains an experimental investigation of LLM embeddings for molecules. Please note that the consistency and usefulness of the returned molecular embeddings are not guaranteed. This project is meant for fun and exploratory purposes only, and should not be used as a demonstration of LLM capabilities for molecular embeddings. Any statements made in this repository are the opinions of the authors and do not necessarily reflect the views of any affiliated organizations or individuals. Use at your own risk.</p>
 
@@ -604,7 +604,7 @@
     <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.51198bba.min.js"></script>
+      <script src="assets/javascripts/bundle.fac441b0.min.js"></script>
       
     
   </body>
