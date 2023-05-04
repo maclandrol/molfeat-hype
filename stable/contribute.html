@@ -13,7 +13,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.9">
     
     
       
@@ -21,7 +21,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.ded33207.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.85bb2934.min.css">
       
       
 
@@ -397,8 +397,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup-a-dev-environment" class="md-nav__link">
-    Setup a dev environment
+  <a href="#setting-up-a-development-environment" class="md-nav__link">
+    Setting up a development environment
   </a>
   
 </li>
@@ -411,29 +411,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-tests" class="md-nav__link">
-    Run tests
+  <a href="#running-tests" class="md-nav__link">
+    Running tests
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#build-the-documentation" class="md-nav__link">
-    Build the documentation
+  <a href="#building-the-documentation" class="md-nav__link">
+    Building the documentation
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#submitting-pull-requests" class="md-nav__link">
-    Submitting Pull Requests
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#release-a-new-version" class="md-nav__link">
-    Release a new version
+    Submitting pull requests
   </a>
   
 </li>
@@ -457,55 +450,39 @@
 
 
 <h1 id="contribute">Contribute<a class="headerlink" href="#contribute" title="Permanent link">&para;</a></h1>
-<p><code>molfeat-hype</code> is part of the molfeat community and as such follows the same guideline! We appreciate everyone's contribution and welcome all. Apart from code contributions, there are various other ways to support the community such as answering questions, providing assistance to others, enhancing the documentation, giving a ⭐️ or sharing the project.</p>
-<p>However you choose to contribute, please be mindful and respect our <a href="https://github.com/maclandrol/molfeat-hype/blob/main/.github/CODE_OF_CONDUCT.md">code of conduct</a>.</p>
+<p>Thank you for your interest in contributing to <code>molfeat-hype</code>! As part of the molfeat community, we welcome all contributions, including code, documentation, and other forms of support. However you choose to contribute, please be mindful and respect our <a href="https://github.com/maclandrol/molfeat-hype/blob/main/.github/CODE_OF_CONDUCT.md">code of conduct</a>.</p>
 <h2 id="ways-to-contribute">Ways to contribute<a class="headerlink" href="#ways-to-contribute" title="Permanent link">&para;</a></h2>
-<p>You can contribute to <code>molfeat</code> and <code>molfeat-hype</code> in several ways:</p>
+<p>You can contribute to <code>molfeat-hype</code> in several ways:</p>
 <ul>
 <li>Fix existing code issues.</li>
 <li>Submit issues related to bugs or new features.</li>
 <li>Suggest or implement new featurizers.</li>
-<li>Improve existing documentation or add new tutorials. </li>
+<li>Improve existing documentation or add new tutorials.</li>
 </ul>
 <p>For a more detailed description of the development lifecycle, please refer to the rest of this document.</p>
-<h2 id="setup-a-dev-environment">Setup a dev environment<a class="headerlink" href="#setup-a-dev-environment" title="Permanent link">&para;</a></h2>
-<p>First you'll need to fork and clone the repository. Once you have a local copy, install the dependencies. 
-It is strongly recommended that you do so in a new conda environment.</p>
+<h2 id="setting-up-a-development-environment">Setting up a development environment<a class="headerlink" href="#setting-up-a-development-environment" title="Permanent link">&para;</a></h2>
+<p>To get started, fork and clone the repository, then install the dependencies. It is strongly recommended that you do so in a new conda environment:</p>
 <div class="highlight"><pre><span></span><code>mamba<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>molfeat_hype<span class="w"> </span>-f<span class="w"> </span>env.yml
 conda<span class="w"> </span>activate<span class="w"> </span>molfeat_hype
 pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 </code></pre></div>
 <h2 id="continuous-integration">Continuous Integration<a class="headerlink" href="#continuous-integration" title="Permanent link">&para;</a></h2>
-<p>molfeat uses Github Actions to:</p>
+<p><code>molfeat-hype</code> uses Github Actions to:</p>
 <ul>
-<li><strong>Build and test</strong> <code>molfeat_hype</code>.</li>
-<li><strong>Check code formating</strong> the code: <code>black</code>.</li>
-<li><strong>Documentation</strong>: build and deploy the documentation on <code>main</code> and for every new git tag.</li>
+<li><strong>Build and test</strong> the code.</li>
+<li><strong>Check code formatting</strong> using <code>black</code>.</li>
+<li><strong>Build and deploy documentation</strong> for each commit and tag.</li>
 </ul>
-<h2 id="run-tests">Run tests<a class="headerlink" href="#run-tests" title="Permanent link">&para;</a></h2>
+<h2 id="running-tests">Running tests<a class="headerlink" href="#running-tests" title="Permanent link">&para;</a></h2>
+<p>You can run the tests with:</p>
 <div class="highlight"><pre><span></span><code>pytest
 </code></pre></div>
-<h2 id="build-the-documentation">Build the documentation<a class="headerlink" href="#build-the-documentation" title="Permanent link">&para;</a></h2>
-<p>You can build and serve the documentation locally with:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Build and serve the doc</span>
-mkdocs<span class="w"> </span>serve
+<h2 id="building-the-documentation">Building the documentation<a class="headerlink" href="#building-the-documentation" title="Permanent link">&para;</a></h2>
+<p>To build and serve the documentation locally, run:</p>
+<div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>serve
 </code></pre></div>
-<h2 id="submitting-pull-requests">Submitting Pull Requests<a class="headerlink" href="#submitting-pull-requests" title="Permanent link">&para;</a></h2>
-<p>If you're considering a large code contribution, please open an issue first to get early feedback on the idea. Once you think the code is ready to be reviewed, push it to your fork and open a pull request. A code owner or maintainer will review your PR and give you feedbacks.</p>
-<h2 id="release-a-new-version">Release a new version<a class="headerlink" href="#release-a-new-version" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Run check: <code>rever check</code>.</li>
-<li>Bump and release new version: <code>rever VERSION_NUMBER</code>.</li>
-<li>Releasing a new version will do the following tasks in this order:<ul>
-<li>Update <code>AUTHORS.rst</code>.</li>
-<li>Update <code>CHANGELOG.rst</code>.</li>
-<li>Bump the version number in <code>setup.py</code> and <code>_version.py</code>.</li>
-<li>Add a git tag.</li>
-<li>Push the git tag.</li>
-<li>Add a new release on the GH repo associated with the git tag.</li>
-</ul>
-</li>
-</ul>
+<h2 id="submitting-pull-requests">Submitting pull requests<a class="headerlink" href="#submitting-pull-requests" title="Permanent link">&para;</a></h2>
+<p>If you're considering a large code contribution, please open an issue first to get early feedback on the idea. Once you think the code is ready to be reviewed, push it to your fork and open a pull request. A code owner or maintainer will review your PR and give you feedback.</p>
 
 
 
@@ -550,7 +527,7 @@ mkdocs<span class="w"> </span>serve
     <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.51198bba.min.js"></script>
+      <script src="assets/javascripts/bundle.fac441b0.min.js"></script>
       
     
   </body>
