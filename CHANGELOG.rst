@@ -4,6 +4,15 @@ molfeat-hype Change Log
 
 .. current developments
 
+v0.1.0
+====================
+
+**Authors:**
+
+* maclandrol
+
+
+
 v0.0.3
 ====================
 
