@@ -24,29 +24,30 @@ dotenv.load_dotenv()
 
 class LLMTransformer(PretrainedMolTransformer):
     """
-    Large Language Model Embeddings Transformer for molecule. This transformer embeds molecules using available LLM through langchain.
-    Note that the LLMs do not have any molecular context as they were not trained on molecules or any specific molecular task.
+    Large Language Model Embeddings Transformer for molecule.
+    This transformer embeds molecules using available Large Language Models (LLMs) through langchain.
+    Please note that the LLMs do not have any molecular context as they were not trained on molecules or any specific molecular task.
     They are just trained on a large corpus of text.
+
 
     !!! warning "Caching computation"
         LLMs can be computationally expensive and even financially expensive if you use the OpenAI embeddings.
         To avoid recomputing the embeddings for the same molecules, we recommend using a molfeat Cache object.
-        By default an in-memory  cache (DataCache) is used, but please explore other caching systems.
+        By default, an in-memory cache (DataCache) is used, but other caching systems can be explored.
+
 
     ??? note "Using OpenAI Embeddings"
-        If you are using the OpenAI embeddings, you need to either provide a 'open_ai_key'
-        argument or define one as an environment variable 'OPEN_AI_KEY'.
+        If you are using the OpenAI embeddings, you need to provide an 'open_ai_key' argument or define one through an environment variable 'OPEN_AI_KEY'.
         Please note that only the `text-embedding-ada-002` model is supported.
-        Please refer to OPENAI's documentation for more information.
+        Refer to OpenAI's documentation for more information.
 
     ??? note "Using LLAMA Embeddings"
-        The Llama embeddings are provided via the the python bindings of `llama.cpp`.
-        We do not provide the path to the quantized llama model. However it's easy to find and them online,
-        someone said there is a torrent/IPFS/direct download somewhere or llama weight, then you can quantized them yourself.
-        When the model weight are provided but are
+        The Llama embeddings are provided via the python bindings of `llama.cpp`.
+        We do not provide the path to the quantized Llama model. However, it's easy to find them online;
+        some people have shared the torrent/IPFS/direct download links to the Llama weights, then you can quantized them yourself.
 
     ??? note "Using Sentence Transformer Embeddings"
-        The sentence transformer embeddings are based on the SentenceTransformers package
+        The sentence transformer embeddings are based on the SentenceTransformers package.
 
     """
 
