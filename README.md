@@ -27,7 +27,7 @@
 
 ```Is it necessary to pretrain/finetune LLMs on molecular context to obtain good molecular representations?```
 
-To find an answer to this question, check out the [benchmarks](tutorials/benchmark.ipynb).
+To find an answer to this question, check out the [benchmarks](docs/tutorials/benchmark.ipynb).
 
 <details>
  <summary>Spoilers</summary>
